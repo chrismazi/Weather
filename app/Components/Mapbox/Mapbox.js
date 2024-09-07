@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect } from "react";
 import { MapContainer, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
@@ -26,7 +27,12 @@ function FlyToActiveCity({ activeCityCords }) {
 }
 
 function Mapbox() {
-  const { forecast } = useGlobalContext(); // Your coordinates
+  const { forecast } = useGlobalContext();
+
+  // Ensure this code only runs on the client side
+  if (typeof window === "undefined") {
+    return null; // Return null on the server
+  }
 
   const activeCityCords = forecast?.coord;
 
@@ -51,7 +57,6 @@ function Mapbox() {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-
         <FlyToActiveCity activeCityCords={activeCityCords} />
       </MapContainer>
     </div>
