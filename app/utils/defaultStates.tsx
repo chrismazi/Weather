@@ -27,13 +27,7 @@ const defaultStates = [
     lat: -1.2864,
     lon: 36.8172,
   },
-  {
-    name: "Dar es Salaam",
-    country: "TZ",  // Tanzania
-    state: "Dar es Salaam",
-    lat: -6.7924,
-    lon:0
-  },
+  
 ];
 
 export default defaultStates;
