@@ -109,6 +109,7 @@ export const GlobalContextProvider = ({ children }) => {
       fetchUvIndex(activeCityCoords[0], activeCityCoords[1]);
     }
   }, [activeCityCoords]);
+  
 
   return (
     <GlobalContext.Provider

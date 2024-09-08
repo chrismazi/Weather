@@ -18,7 +18,7 @@ function UvIndex() {
 
   const uvIndexMax = uv_index_max[0].toFixed(0);
 
-  // Updated UV index category function with simpler language for farmers
+  
   const uvIndexCategory = (uvIndex: number) => {
     if (uvIndex <= 2) {
       return {
