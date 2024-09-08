@@ -18,36 +18,37 @@ function UvIndex() {
 
   const uvIndexMax = uv_index_max[0].toFixed(0);
 
+  // Updated UV index category function with simpler language for farmers
   const uvIndexCategory = (uvIndex: number) => {
     if (uvIndex <= 2) {
       return {
         text: "Low",
-        protection: "No protection required",
+        protection: "Good for most crops; no protection needed.",
       };
     } else if (uvIndex <= 5) {
       return {
         text: "Moderate",
-        protection: "Stay in shade near midday.",
+        protection: "OK for most crops, but give sensitive plants some shade.",
       };
     } else if (uvIndex <= 7) {
       return {
         text: "High",
-        protection: "Wear a hat and sunglasses.",
+        protection: "Protect crops with shade nets or special sprays.",
       };
     } else if (uvIndex <= 10) {
       return {
         text: "Very High",
-        protection: "Apply sunscreen SPF 30+ every 2 hours.",
+        protection: "Use protection sprays and give crops shade.",
       };
     } else if (uvIndex > 10) {
       return {
         text: "Extreme",
-        protection: "Avoid being outside.",
+        protection: "Keep crops out of direct sunlight as much as possible.",
       };
     } else {
       return {
         text: "Extreme",
-        protection: "Avoid being outside.",
+        protection: "Keep crops out of direct sunlight as much as possible.",
       };
     }
   };

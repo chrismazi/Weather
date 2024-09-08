@@ -14,13 +14,15 @@ function Humidity() {
   const { humidity } = forecast?.main;
 
   const getHumidityText = (humidity: number) => {
-    if (humidity < 30) return "Dry: May cause skin irritation";
+    if (humidity < 30)
+      return "Low Humidity: Best for drought-resistant crops like Millet.";
     if (humidity >= 30 && humidity < 50)
-      return "Comfortable: Ideal for health and comfort";
+      return "Moderate Humidity: Ideal for staple crops like Wheat.";
     if (humidity >= 50 && humidity < 70)
-      return "Moderate: Sticky, may increase allergens";
-    if (humidity >= 70) return "High: Uncomfortable, mold growth risk";
-    return "Unavailable: Humidity data not available";
+      return "High Humidity: Best for water-intensive crops like Rice.";
+    if (humidity >= 70)
+      return "Very High Humidity: Ideal for tropical crops like Bananas.";
+    return "Unavailable: Humidity data not available.";
   };
 
   return (
