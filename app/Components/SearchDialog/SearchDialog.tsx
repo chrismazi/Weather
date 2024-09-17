@@ -18,16 +18,17 @@ function SearchDialog() {
   const getClickedCoords = (lat: number, lon: number) => {
     setActiveCityCoords([lat, lon]);
   };
+
   return (
     <div className="search-btn">
       <Dialog>
         <DialogTrigger asChild>
           <Button
             variant="outline"
-            className="border inline-flex items-center justify-center text-sm font-medium hover:dark:bg-[#131313] hover:bg-slate-100  ease-in-out duration-200"
+            className="border border-[#84a847ee] inline-flex items-center justify-center text-sm font-medium hover:dark:bg-[#131313] hover:bg-slate-100 ease-in-out duration-200"
           >
-            <p className="text-sm text-muted-foreground">Search Here...</p>
-            <div className="command dark:bg-[#262626] bg-slate-200  py-[2px] pl-[5px] pr-[7px] rounded-sm ml-[10rem] flex items-center gap-2">
+            <p className="text-sm text-muted-foreground dark:text-white">Search Here...</p>
+            <div className="command dark:bg-[#262626] bg-slate-200 py-[2px] pl-[5px] pr-[7px] rounded-sm ml-[10rem] flex items-center gap-2">
               {commandIcon}
               <span className="text-[9px]">F</span>
             </div>
@@ -35,17 +36,17 @@ function SearchDialog() {
         </DialogTrigger>
 
         <DialogContent className="p-0">
-          <Command className=" rounded-lg border shadow-md">
+          <Command className="rounded-lg border-[#84a847ee] border shadow-md dark:bg-dark-grey">
             <CommandInput
               value={inputValue}
               onChangeCapture={handleInput}
               placeholder="Type a command or search..."
+              className="dark:bg-dark-grey text-black dark:text-white"
             />
             <ul className="px-3 pb-2">
-              <p className="p-2 text-sm text-muted-foreground">Suggestions</p>
+              <p className="p-2 text-sm text-muted-foreground dark:text-white">Suggestions</p>
 
-              {geoCodedList?.length === 0 ||
-                (!geoCodedList && <p>No Results</p>)}
+              {geoCodedList?.length === 0 || (!geoCodedList && <p>No Results</p>)}
 
               {geoCodedList &&
                 geoCodedList.map(
@@ -64,14 +65,17 @@ function SearchDialog() {
                       <li
                         key={index}
                         onMouseEnter={() => setHoveredIndex(index)}
-                        className={`py-3 px-2 text-sm  rounded-sm cursor-default
-                        ${hoveredIndex === index ? "bg-accent" : ""}
-                      `}
+                        className={`py-3 px-2 text-sm rounded-sm cursor-default dark:text-white
+                        ${
+                          hoveredIndex === index
+                            ? "bg-accent dark:bg-[#84a847ee]"
+                            : ""
+                        }`}
                         onClick={() => {
                           getClickedCoords(item.lat, item.lon);
                         }}
                       >
-                        <p className=" text">
+                        <p className="text">
                           {name}, {state && state + ","} {country}
                         </p>
                       </li>

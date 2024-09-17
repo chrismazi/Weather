@@ -14,14 +14,21 @@ function Population() {
   }
 
   return (
-    <div className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col gap-8 dark:bg-dark-grey shadow-sm dark:shadow-none">
+    <div
+      className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col 
+        gap-8 dark:bg-dark-grey shadow-sm border-[#84a847ee] dark:shadow-none"
+    >
       <div className="top">
-        <h2 className="flex items-center gap-2 font-medium">
+        <h2 className="flex items-center gap-2 font-medium bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
           {people} Population
         </h2>
-        <p className="pt-4 text-2xl">{formatNumber(city.population)}</p>
+        <p className="pt-4 text-2xl bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
+          {formatNumber(city.population)}
+        </p>
       </div>
-      <p className="text-sm">Latest UN population data for {city.name}.</p>
+      <p className="text-sm bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
+        Latest UN population data for {city.name}.
+      </p>
     </div>
   );
 }

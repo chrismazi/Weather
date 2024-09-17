@@ -18,7 +18,6 @@ function UvIndex() {
 
   const uvIndexMax = uv_index_max[0].toFixed(0);
 
-  
   const uvIndexCategory = (uvIndex: number) => {
     if (uvIndex <= 2) {
       return {
@@ -56,9 +55,14 @@ function UvIndex() {
   const marginLeftPercentage = (uvIndexMax / 14) * 100;
 
   return (
-    <div className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col gap-5 dark:bg-dark-grey shadow-sm dark:shadow-none">
+    <div
+      className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col gap-5 
+        dark:bg-dark-grey shadow-sm border-[#84a847ee] dark:shadow-none"
+    >
       <div className="top">
-        <h2 className="flex items-center gap-2 font-medium">{sun} Uv Index</h2>
+        <h2 className="flex items-center gap-2 font-medium bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
+          {sun} Uv Index
+        </h2>
         <div className="pt-4 flex flex-col gap-1">
           <p className="text-2xl">
             {uvIndexMax}
@@ -75,7 +79,9 @@ function UvIndex() {
         </div>
       </div>
 
-      <p className="text-sm">{uvIndexCategory(uvIndexMax).protection} </p>
+      <p className="text-sm bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
+        {uvIndexCategory(uvIndexMax).protection}
+      </p>
     </div>
   );
 }
