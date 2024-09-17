@@ -8,7 +8,7 @@ function Pressure() {
   const { forecast } = useGlobalContext();
 
   if (!forecast || !forecast?.main || !forecast?.main?.pressure) {
-    return <Skeleton className="h-[12rem] w-full" />;
+    return <Skeleton className="w-full" style={{ height: "auto" }} />;
   }
 
   const { pressure } = forecast?.main;
@@ -32,11 +32,16 @@ function Pressure() {
 
   return (
     <div
-      className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col 
-        gap-8 dark:bg-dark-grey shadow-sm border-[#84a847ee] dark:shadow-none"
+      className="pt-6 pb-5 px-4 border rounded-lg flex flex-col gap-4 
+        dark:bg-dark-grey shadow-sm border-[#84a847ee] dark:shadow-none"
+      style={{ minHeight: "12rem" }} // Allows the box to expand based on content
     >
       <div className="top">
-        <h2 className="flex items-center gap-2 font-medium bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
+        <h2
+          className="flex items-center gap-2 font-medium bg-gradient-to-r 
+          from-black to-[#84a847ee] text-transparent bg-clip-text 
+          dark:text-white"
+        >
           {gauge} Pressure
         </h2>
         <p className="pt-4 text-2xl bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
