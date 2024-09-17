@@ -28,7 +28,7 @@ function DailyForecast() {
   const today = new Date();
   const todayString = today.toISOString().split("T")[0];
 
-  //filter the list for today's forecast
+  // Filter the list for today's forecast
   const todaysForecast = list.filter(
     (forecast: { dt_txt: string; main: { temp: number } }) => {
       return forecast.dt_txt.startsWith(todayString);
@@ -63,7 +63,7 @@ function DailyForecast() {
   return (
     <div
       className="pt-6 px-4 h-[12rem] border rounded-lg flex flex-col gap-8
-       dark:bg-dark-grey shadow-sm dark:shadow-none col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2"
+      dark:bg-dark-grey shadow-sm border-[#84a847ee] dark:shadow-none col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2"
     >
       <div className="h-full flex gap-10 overflow-hidden">
         {todaysForecast.length < 1 ? (
@@ -83,11 +83,15 @@ function DailyForecast() {
                         key={forecast.dt_txt}
                         className="flex flex-col gap-4 basis-[8.5rem] cursor-grab"
                       >
-                        <p className=" text-gray-300">
+                        <p
+                          className="text-[#84a847ee] dark:text-[#84a847ee]"
+                        >
                           {moment(forecast.dt_txt).format("HH:mm")}
                         </p>
                         <p>{getIcon()}</p>
-                        <p className="mt-4">
+                        <p
+                          className="mt-4 text-[#84a847ee] dark:text-[#84a847ee]"
+                        >
                           {kelvinToCelsius(forecast.main.temp)}°C
                         </p>
                       </CarouselItem>

@@ -51,10 +51,10 @@ function FiveDayForecast() {
   return (
     <div
       className="pt-6 pb-5 px-4 flex-1 border rounded-lg flex flex-col
-        justify-between dark:bg-dark-grey shadow-sm dark:shadow-none"
+        justify-between dark:bg-dark-grey shadow-sm border-[#84a847ee] dark:shadow-none"
     >
       <div>
-        <h2 className="flex items-center gap-2 font-medium">
+        <h2 className="flex items-center gap-2 font-medium bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
           {calender} 5-Day Forecast for {city.name}
         </h2>
 
@@ -63,18 +63,20 @@ function FiveDayForecast() {
             return (
               <div
                 key={i}
-                className="daily-forevast py-4 flex flex-col justify-evenly border-b-2"
+                className="daily-forecast py-4 flex flex-col justify-evenly border-b-2 dark:border-gray-600"
               >
-                <p className="text-xl min-w-[3.5rem]">{day.day}</p>
-                <p className="text-sm flex justify-between">
+                <p className="text-xl min-w-[3.5rem] dark:text-white bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text">
+                  {day.day}
+                </p>
+                <p className="text-sm flex justify-between dark:text-white bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text">
                   <span>(low)</span>
                   <span>(high)</span>
                 </p>
 
                 <div className="flex-1 flex items-center justify-between gap-4">
-                  <p className="font-bold">{day.minTemp}°C</p>
-                  <div className="temperature flex-1 w-full h-2 rounded-lg"></div>
-                  <p className="font-bold">{day.maxTemp}°C</p>
+                  <p className="font-bold dark:text-white">{day.minTemp}°C</p>
+                  <div className="temperature flex-1 w-full h-2 rounded-lg bg-[#84a847ee]"></div>
+                  <p className="font-bold dark:text-white">{day.maxTemp}°C</p>
                 </div>
               </div>
             );
