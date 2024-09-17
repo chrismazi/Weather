@@ -8,7 +8,7 @@ function Humidity() {
   const { forecast } = useGlobalContext();
 
   if (!forecast || !forecast?.main || !forecast?.main?.humidity) {
-    return <Skeleton className="h-[12rem] w-full" />;
+    return <Skeleton className="w-full" style={{ height: "auto" }} />;
   }
 
   const { humidity } = forecast?.main;
@@ -27,8 +27,9 @@ function Humidity() {
 
   return (
     <div
-      className="pt-6 pb-5 px-4 h-[12rem] border rounded-lg flex flex-col 
-      gap-8 dark:bg-dark-grey shadow-sm border-[#84a847ee] dark:shadow-none"
+      className="pt-6 pb-5 px-4 border rounded-lg flex flex-col 
+      gap-4 dark:bg-dark-grey shadow-sm border-[#84a847ee] dark:shadow-none"
+      style={{ minHeight: "12rem" }} // Allows dynamic height based on content
     >
       <div className="top">
         <h2
