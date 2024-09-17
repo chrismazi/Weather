@@ -9,7 +9,7 @@ import React from "react";
 function AirPollution() {
   const { airQuality } = useGlobalContext();
 
-  // check if airQuality is available, check if necessary properties are available
+  // Check if airQuality is available and necessary properties are available
   if (
     !airQuality ||
     !airQuality.list ||
@@ -30,13 +30,19 @@ function AirPollution() {
   return (
     <div
       className="air-pollution pt-6 px-4 h-[12rem] border rounded-lg flex flex-col gap-8
-       dark:bg-dark-grey shadow-sm dark:shadow-none col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2"
+       dark:bg-dark-grey shadow-sm dark:shadow-none col-span-full sm-2:col-span-2 md:col-span-2 xl:col-span-2
+       border-[#84a847ee] bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white"
     >
       <h2 className="flex items-center gap-2 font-medium">
-        {thermo}Air Pollusion
+        {thermo}
+        <span className="bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
+          Air Pollution
+        </span>
       </h2>
-      <Progress value={airQualityIndex} max={100} className="progress" />
-      <p className="text-sm">Air quality is {filteredIndex?.description}. </p>
+      <Progress value={airQualityIndex} max={100} className="progress bg-[#84a847ee]" />
+      <p className="text-sm bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
+        Air quality is {filteredIndex?.description}.
+      </p>
     </div>
   );
 }

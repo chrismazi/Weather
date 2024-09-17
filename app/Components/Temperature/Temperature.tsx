@@ -50,15 +50,15 @@ function Temperature() {
 
   // Live time update
   useEffect(() => {
-    // upadte time every second
+    // update time every second
     const interval = setInterval(() => {
       const localMoment = moment().utcOffset(timezone / 60);
       // custom format: 24 hour format
-      const formatedTime = localMoment.format("HH:mm:ss");
+      const formattedTime = localMoment.format("HH:mm:ss");
       // day of the week
       const day = localMoment.format("dddd");
 
-      setLocalTime(formatedTime);
+      setLocalTime(formattedTime);
       setCurrentDay(day);
     }, 1000);
 
@@ -69,24 +69,37 @@ function Temperature() {
   return (
     <div
       className="pt-6 pb-5 px-4 border rounded-lg flex flex-col 
-        justify-between dark:bg-dark-grey shadow-sm dark:shadow-none"
+        justify-between shadow-sm border-[#84a847ee] 
+        dark:bg-dark-grey dark:text-white"
     >
-      <p className="flex justify-between items-center">
-        <span className="font-medium">{currentDay}</span>
-        <span className="font-medium">{localTime}</span>
+      {/* Date and Time */}
+      <p className="flex justify-between items-center bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white font-medium">
+        <span>{currentDay}</span>
+        <span>{localTime}</span>
       </p>
-      <p className="pt-2 font-bold flex gap-1">
-        <span>{name}</span>
-        <span>{navigation}</span>
-      </p>
-      <p className="py-10 text-9xl font-bold self-center">{temp}°</p>
 
+      {/* Location */}
+      <p className="pt-2 flex gap-1 bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white font-medium">
+        <span>{name}</span>
+        <span className="text-3xl">{navigation}</span>
+      </p>
+
+      {/* Temperature */}
+      <p className="py-10 text-9xl font-medium self-center" style={{ color: '#84a847ee' }}>
+        {temp}°
+      </p>
+
+      {/* Weather Details */}
       <div>
-        <div>
-          <span>{getIcon()}</span>
-          <p className="pt-2 capitalize text-lg font-medium">{description}</p>
+        <div className="flex items-center">
+          <span className="text-5xl">{getIcon()}</span>
+          <p className="pt-2 capitalize text-lg font-medium bg-gradient-to-r from-black to-[#84a847ee] text-transparent bg-clip-text dark:text-white">
+            {description}
+          </p>
         </div>
-        <p className="flex items-center gap-2">
+
+        {/* High and Low Temperatures */}
+        <p className="flex items-center gap-2 text-black dark:text-white font-medium">
           <span>Low: {minTemp}°</span>
           <span>High: {maxTemp}°</span>
         </p>

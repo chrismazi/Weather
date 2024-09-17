@@ -25,26 +25,28 @@ function Navbar() {
 
           {/* Get Current Location Button */}
           <Button
-            className="current-location-btn flex items-center gap-2"
-            onClick={() => {
-              if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                  (position) => {
-                    const { latitude, longitude } = position.coords;
-                    setActiveCityCoords([latitude, longitude]); // Update activeCityCoords in the context
-                  },
-                  (error) => {
-                    console.error("Error fetching location:", error);
-                    alert("Unable to retrieve your location.");
-                  }
-                );
-              } else {
-                alert("Geolocation is not supported by your browser.");
-              }
-            }}
-          >
-            Get Current Location
-          </Button>
+  className="current-location-btn flex items-center gap-2"
+  style={{ backgroundColor: '#84a847ee', color: '#fff' }} // Add color and text color
+  onClick={() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setActiveCityCoords([latitude, longitude]); // Update activeCityCoords in the context
+        },
+        (error) => {
+          console.error("Error fetching location:", error);
+          alert("Unable to retrieve your location.");
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  }}
+>
+  Get Current Location
+</Button>
+
         </div>
       </div>
     </div>
